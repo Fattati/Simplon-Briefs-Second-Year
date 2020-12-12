@@ -1,0 +1,2 @@
+module club_lecture {
+}
