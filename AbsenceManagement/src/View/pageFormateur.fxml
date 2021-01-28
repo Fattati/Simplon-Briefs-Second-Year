@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="443.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Gestion_Formateur">
+   <children>
+      <Label fx:id="nom_user" layoutX="26.0" layoutY="38.0" text="nom" textFill="#5166ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="114.0" text="Nom d'apprenant :">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_retard" layoutX="52.0" layoutY="287.0" text="Durée du Retard :">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="257.0" layoutY="355.0" mnemonicParsing="false" onAction="#Processing" prefHeight="28.0" prefWidth="84.0" text="Confirmer">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="243.0" layoutY="37.0" mnemonicParsing="false" onAction="#deconnexion" prefHeight="29.0" prefWidth="92.0" text="Déconnecter">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txt_Field" layoutX="183.0" layoutY="284.0" prefWidth="149.0" />
+      <ComboBox fx:id="comboBox" layoutX="182.0" layoutY="110.0" prefHeight="0.0" prefWidth="150.0" />
+      <RadioButton fx:id="rdb1" layoutX="161.0" layoutY="204.0" mnemonicParsing="false" onAction="#isSelected" text="Un jour">
+         <toggleGroup>
+            <ToggleGroup fx:id="groupe" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rdb3" layoutX="233.0" layoutY="203.0" mnemonicParsing="false" onMouseClicked="#isSelected" text="Demi Jour" toggleGroup="$groupe" />
+      <Text layoutX="52.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Durée d'absence :">
+         <font>
+            <Font size="13.0" />
+         </font></Text>
+      <RadioButton fx:id="rdb2" layoutX="319.0" layoutY="204.0" mnemonicParsing="false" onMouseClicked="#isSelected" text="Retard" toggleGroup="$groupe" />
+   </children>
+</AnchorPane>
