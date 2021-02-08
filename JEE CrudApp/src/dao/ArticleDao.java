@@ -10,5 +10,5 @@ public interface ArticleDao {
 	public List<Article> search (String n);
 	public Article update(Article a);
 	public void delete(long id);
-
+	public Article getArticle(Long id);
 }

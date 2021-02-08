@@ -57,14 +57,55 @@ public class ArticleDaoImp implements ArticleDao {
 
 	@Override
 	public Article update(Article a) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection=DbConnection.getConnection();
+		try {
+			PreparedStatement ps=connection.prepareStatement("UPDATE ARTICLES SET NAME=? WHERE ID=?");
+			ps.setString(1, a.getName());
+			ps.setLong(2, a.getId());
+			ps.executeUpdate(); //execute query
+			ps.close(); //close object statement
+			//connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return a;
 	}
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
-		
+		System.out.print("id");
+			Connection connection=DbConnection.getConnection();
+			try {
+				PreparedStatement ps=connection.prepareStatement("DELETE FROM ARTICLES WHERE id=?");
+				ps.setLong(1, id);
+				ps.executeUpdate();
+				ps.close(); 
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
+	@Override
+	public Article getArticle(Long id) {
+		Article a=null;
+		Connection connection=DbConnection.getConnection();
+		try {
+			PreparedStatement ps=connection.prepareStatement("SELECT * FROM ARTICLES WHERE ID= ?");
+			ps.setLong(1, id);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()) {
+				a=new Article();
+				a.setId(rs.getLong("id"));
+				a.setName(rs.getString("name"));
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return a;
+	}
 }
