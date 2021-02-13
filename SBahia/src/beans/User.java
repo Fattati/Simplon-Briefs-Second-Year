@@ -1,22 +1,22 @@
 package beans;
 
 public class User {
-	private int id;
+	private int userId;
 	private String name;
 	private String email;
-	private int password;
+	private String password;
 	private String role;
 	
 	public User() {
 		super();
 	}
 
-	public int getId() {
-		return id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getName() {
@@ -35,11 +35,11 @@ public class User {
 		this.email = email;
 	}
 
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -51,14 +51,13 @@ public class User {
 		this.role = role;
 	}
 
-	public User(String name, String email, int password, String role) {
+	public User(String name, String email, String password, String role) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.role = role;
 	}
-	
 	
 }
 

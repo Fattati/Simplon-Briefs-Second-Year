@@ -1,18 +1,17 @@
 package beans;
 
 public class Product {
-	private int id;
+	private int productId;
 	private String name;
-	private String price;
+	private float price;
 	private String img;
-	private String quantity;
-	private int vote;
+	private int quantity;
 	
-	public int getId() {
-		return id;
+	public int getProductId() {
+		return productId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	public String getName() {
 		return name;
@@ -20,10 +19,10 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	public String getImg() {
@@ -32,25 +31,18 @@ public class Product {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int getVote() {
-		return vote;
-	}
-	public void setVote(int vote) {
-		this.vote = vote;
-	}
-	public Product(String name, String price, String img, String quantity, int vote) {
+	public Product(String name, float price, String img, int quantity) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.img = img;
 		this.quantity = quantity;
-		this.vote = vote;
 	}
 }
 
