@@ -21,6 +21,7 @@ public class LoginForm  {
 		user = new UserModel();
 		//user.setName(result.getString("name"));
 		user.setEmail(email);
+		user.setRole(result.getString("role"));
 	}
 	//connection.close();
 	return user;

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import services.LoginForm;
 
 @WebServlet("/login")
@@ -35,13 +36,22 @@ public class LoginServlet extends HttpServlet {
         	 if (user != null) {
                  HttpSession session = request.getSession();
                  session.setAttribute("user", user);
-                 destPage = "admin.jsp";
-             } else {
+                 if (user.getRole().equals("admin")) {
+                	 RequestDispatcher dispatcher = request.getRequestDispatcher("admin.jsp");
+                	 dispatcher.forward(request, response);
+				}
+                 else if (user.getRole().equals("client")) {
+                	 /*RequestDispatcher dispatcher = request.getRequestDispatcher("products.jsp");
+                	 dispatcher.forward(request, response);*/
+                	 response.sendRedirect("/SBahia/ProductManagement");
+				}
+                 } 
+        	 else {
                  String message = "Invalid email/password";
                  request.setAttribute("message", message);
              }
-        	 RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
-             dispatcher.forward(request, response);
+//        	 RequestDispatcher dispatcher = request.getRequestDispatcher(destPage);
+//             dispatcher.forward(request, response);
               
          } catch (SQLException ex) {
              throw new ServletException(ex);

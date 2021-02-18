@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
 		}
 			else {
 				request.setAttribute("errMessage", userRegistered);
-				request.getRequestDispatcher("/register.jsp").forward(request, response);
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
 			}
 			
 		}
