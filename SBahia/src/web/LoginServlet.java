@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.User;
 import services.LoginForm;
 
 @WebServlet("/login")
@@ -22,15 +23,28 @@ public class LoginServlet extends HttpServlet {
 	public LoginServlet() {
 		super();
 	}
+	public boolean passwordValidation(String password) {
+		boolean test = true;
+		if(password.length() < 8){
+			test = false;
+		}	
+		return test;
+		
+	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         LoginForm loginForm= new LoginForm();
-        
+        if(!passwordValidation(password)) {
+			request.setAttribute("error","email or password incorect");
+			request.getRequestDispatcher("index.jsp").forward(request,response);
+        } else {
+			
+		
         try {
-        	UserModel user = loginForm.checkLogin(email, password);
+        	User user = loginForm.checkLogin(email, password);
         	String destPage = "index.jsp";
         	
         	 if (user != null) {
@@ -58,6 +72,6 @@ public class LoginServlet extends HttpServlet {
          }
 	}
 	
-
+	}
 }
 

@@ -9,4 +9,12 @@
 <servlet-name>cs</servlet-name>
 <url-pattern>*.do</url-pattern>
 </servlet-mapping>
+  <servlet>
+<servlet-name>cs2</servlet-name>
+<servlet-class>web.ProductManagement</servlet-class>
+</servlet> 
+<servlet-mapping>
+<servlet-name>cs2</servlet-name>
+<url-pattern>*.test</url-pattern>
+</servlet-mapping>
 </web-app>

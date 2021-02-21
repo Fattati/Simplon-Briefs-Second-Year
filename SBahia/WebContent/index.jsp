@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta charset="ISO-8859-1">
 <style><%@include file="css/style.css"%></style>
 <title>Home</title>
@@ -16,8 +17,8 @@
 		<br>
 		<div class="login">
 		<form action="login" method="post">
-				<input type="text" placeholder="email" name="email"><br>
-				<input type="password" placeholder="password" name="password"><br>
+				<input type="text" placeholder="email" name="email" required	><br>
+				<input type="password" placeholder="password" name="password"  minlength="8" required><br>
 				<input type="submit" value="Login">
 		</form>				
 		</div>

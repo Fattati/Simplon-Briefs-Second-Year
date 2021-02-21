@@ -48,11 +48,12 @@
 				</div>
 				<div class="description">
 					<p>Quantity : ${p.quantity} </p>
+					<p>Likes Number: ${voteNumber[status.index]}</p>
 				</div>
 				<div class="product-info smart-form">
 					<div class="row">
 						<div class="col-md-12"> 
-							<a href="javascript:void(0);" class="btn btn-danger">Like Product</a>
+							<a href="like.test?productId=${p.productId}"  class="btn btn-danger">Like Product</a>
                             <a href="javascript:void(0);" class="btn btn-info">More info</a>
 						</div>
 						<div class="col-md-12">
