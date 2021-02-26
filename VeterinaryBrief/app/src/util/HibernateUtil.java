@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import beans.Message;
+import beans.Rendezvous;
 import beans.User;
 
 public class HibernateUtil {
@@ -15,13 +17,15 @@ public class HibernateUtil {
 	public static SessionFactory getSessionFactory() {
 		if (factory == null) {
 			Configuration config = new Configuration().configure("hibernate.cfg.xml");
-			factory = setupClasses(config).buildSessionFactory();
+			factory = Classes(config).buildSessionFactory();
 		}
 		return factory;
 	}
 	
-	private static Configuration setupClasses(Configuration config) {
+	private static Configuration Classes(Configuration config) {
         config.addAnnotatedClass(User.class);
+        config.addAnnotatedClass(Message.class);
+        config.addAnnotatedClass(Rendezvous.class);
         
         return config;
     }
