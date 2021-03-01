@@ -30,8 +30,8 @@ public class User {
 	
 	@OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Message> messages;
-	 @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
-	 private List<Rendezvous> rendezvous;
+	@OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Rendezvous> rendezvous;
 	
 	
 	public User(String name, String email, String password, String role) {

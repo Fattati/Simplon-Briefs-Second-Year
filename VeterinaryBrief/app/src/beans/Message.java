@@ -4,12 +4,16 @@ package beans;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="message")
 public class Message {
 	
 	@Id
@@ -22,11 +26,11 @@ public class Message {
 	private Date mesageDate;
 	
 	 @ManyToOne
-	  @JoinColumn(name = "userid")
-	 private User user;
+	 @JoinColumn(name = "userid")
+	 private User users;
 	 @ManyToOne
-	    @JoinColumn(name = "rendezvousid")
-	    private Rendezvous rendezvous;
+	 @JoinColumn(name = "rendezvousid")
+	 private Rendezvous rendezvous;
 	
 	public Message() {
 		super();

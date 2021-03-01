@@ -5,13 +5,17 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="rendezvous")
 public class Rendezvous {
 	
 	@Id
@@ -22,15 +26,16 @@ public class Rendezvous {
 	private String title;
 	@Column(name = "description")
 	private String description;
-	@Column(name = "animal type")
+	@Column(name = "animalType")
 	private String animalType;
-	@Column(name = "date")
+	@Column(name = " rendezvousDate")
 	private Date rendezvousDate;
 	
 	 @ManyToOne
 	 @JoinColumn(name = "userid")
-	    private User user;
-	    @OneToMany(mappedBy = "rendezvous", cascade = CascadeType.ALL, orphanRemoval = true)
+	    private User users;
+	 
+	  @OneToMany(mappedBy = "rendezvous", cascade = CascadeType.ALL, orphanRemoval = true)
 	    private List<Message> messages;
 	
 	
