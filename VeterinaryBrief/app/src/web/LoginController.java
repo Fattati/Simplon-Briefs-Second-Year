@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
+import service.UserS;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
@@ -41,15 +43,18 @@ public class LoginController extends HttpServlet {
 
     private void authenticate(HttpServletRequest request, HttpServletResponse response)
     throws Exception {
+    	UserS userS = new UserS();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
         if (loginDao.validate(email, password)) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("login-success.jsp");
+                 HttpSession session = request.getSession();
+                 session.setAttribute("user", userS.getByEmail(email));
+            RequestDispatcher dispatcher = request.getRequestDispatcher("rendezvous.jsp");
             dispatcher.forward(request, response);
         } else {
             throw new Exception("Login not successful..");
         }
+    
     }
 
 }

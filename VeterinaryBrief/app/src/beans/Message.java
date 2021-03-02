@@ -27,7 +27,7 @@ public class Message {
 	
 	 @ManyToOne
 	 @JoinColumn(name = "userid")
-	 private User users;
+	 private User user;
 	 @ManyToOne
 	 @JoinColumn(name = "rendezvousid")
 	 private Rendezvous rendezvous;

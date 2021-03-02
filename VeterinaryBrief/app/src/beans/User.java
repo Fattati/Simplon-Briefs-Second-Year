@@ -28,9 +28,9 @@ public class User {
 	@Column(name = "role")
 	private String role;
 	
-	@OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Message> messages;
-	@OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Rendezvous> rendezvous;
 	
 	
