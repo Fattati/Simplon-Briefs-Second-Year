@@ -22,4 +22,37 @@
    
    </bean>
    
+    <!-- Configure JDBC Connection-->
+      <bean id="dataSource"
+            class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="org.postgresql.Driver" />
+            <property name="url" value="jdbc:postgresql://localhost:5432/reservation" />
+            <property name="username" value="postgres" />
+            <property name="password" value="123456" />
+      </bean>
+
+      <!-- Configure Hibernate Session Facotry -->
+      <bean id="sessionFactory"
+            class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+
+			<property name="dataSource">
+			  <ref bean="dataSource" />
+			</property>
+
+			<property name="hibernateProperties">
+			  <props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+					<prop key="hibernate.show_sql">true</prop>
+			  </props>
+			</property>
+			<property name="annotatedClasses">
+			<list>
+				  <value>com.reservationapp.model.User</value> <!-- Entity classes-->
+				  <value>com.reservationapp.model.Reservation</value>
+				  <value>com.reservationapp.model.Calendar</value>
+			</list>
+			</property>
+
+      </bean>
+   
 </beans>
