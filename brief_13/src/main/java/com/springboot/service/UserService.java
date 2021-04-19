@@ -9,4 +9,6 @@ public interface UserService {
     User save(UserDto user);
     List<User> findAll();
     User findOne(String username);
+    User update(User user);
+    void deleteById(Long userId);
 }

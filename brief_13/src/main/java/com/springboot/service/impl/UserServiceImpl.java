@@ -59,6 +59,16 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
+    public User update(User user) {
+        return userDao.save(user);
+    }
+
+    @Override
+    public void deleteById(Long userId) {
+        userDao.deleteById(userId);
+    }
+
+    @Override
     public User save(UserDto user) {
 
         User nUser = user.getUserFromDto();
@@ -76,4 +86,5 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         nUser.setRoles(roleSet);
         return userDao.save(nUser);
     }
+
 }
