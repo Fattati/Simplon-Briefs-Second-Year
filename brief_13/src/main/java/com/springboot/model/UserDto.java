@@ -47,4 +47,11 @@ public class UserDto {
     public void setName(String name) {
         this.name = name;
     }
+
+    public UserDto(String username, String password, String email, String name) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+    }
 }
