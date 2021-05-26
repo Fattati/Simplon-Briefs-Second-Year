@@ -7,6 +7,7 @@ import {AdminViewModule} from './view/admin/admin-view.module';
 import {HttpClientModule} from '@angular/common/http';
 import { TableUsersComponent } from './components/table/table-users/table-users.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,12 +15,13 @@ import { AuthentificationComponent } from './authentification/authentification.c
     TableUsersComponent,
     AuthentificationComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AdminViewModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AdminViewModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

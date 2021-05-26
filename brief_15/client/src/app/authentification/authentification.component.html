@@ -34,16 +34,17 @@
           </div>
         </div>
       </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="col-lg-6">
         <div class="login-form">
           <div class="row">
             <div class="col-md-6">
               <label>E-mail / Username</label>
-              <input class="form-control" type="text" placeholder="E-mail / Username">
+              <input class="form-control" type="text" placeholder="E-mail / Username" formControlName="email">
             </div>
             <div class="col-md-6">
               <label>Password</label>
-              <input class="form-control" type="text" placeholder="Password">
+              <input class="form-control" type="password" placeholder="Password" formControlName="password">
             </div>
             <div class="col-md-12">
               <div class="custom-control custom-checkbox">
@@ -52,11 +53,12 @@
               </div>
             </div>
             <div class="col-md-12">
-              <button class="btn">Submit</button>
+              <button class="btn" type="submit">Submit</button>
             </div>
           </div>
         </div>
       </div>
+      </form>
     </div>
   </div>
 </div>
